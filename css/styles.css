@@ -6,6 +6,7 @@ body {
     rgba(184, 236, 159, 0.8547794117647058) 100%,
     rgba(0, 212, 255, 1) 100%
   );
+  position: relative;
 }
 
 .container {
@@ -56,6 +57,20 @@ body {
 .cube-yellow {
   background-color: var(--yellow);
 }
+
 .cube-blue {
   background-color: var(--blue);
+}
+
+.alert-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.modal-btn {  
+  font-size: 1rem;
+  text-transform: initial;
 }
