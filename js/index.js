@@ -45,7 +45,7 @@ startBtn.addEventListener('click', (e) => {
   startBtn.disabled = true;
 
   for(let i = 0; i < 5; i++) {
-    cube();
+    createCube();
   }
 
   if(timerValue < 59) {
@@ -69,7 +69,7 @@ function getRandomValue(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function cube() {
+function createCube() {
   const cube = document.createElement('div');
   const colorsCube = ['red', 'green', 'yellow', 'blue'];
 
@@ -93,6 +93,19 @@ function cube() {
 
   cube.style.width = cubeWidth + 'px';
   cube.style.height = cubeHeight + 'px';
+
+  cube.addEventListener('click', (e) => {
+    if(e.target.classList.contains('cube')) {
+      if(gameField.childElementCount < 5) {
+        for(let i = 0; i < getRandomValue(0, 3); i++) {
+          createCube();
+        }
+      }
+
+      scoreEl.textContent = +scoreEl.textContent + 1;
+      e.target.remove();
+    }
+  });
 
   gameField.appendChild(cube);
 }

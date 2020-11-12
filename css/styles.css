@@ -11,6 +11,7 @@ body {
 .container {
   background-color: var(--gray-dark);
   color: #fff;
+  margin-top: 4rem;
 }
 
 .header {
