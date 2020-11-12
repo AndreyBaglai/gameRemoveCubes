@@ -24,21 +24,21 @@
             <h1>Remove Cubes</h1>
 
             <div class="row">
-                <div class="col-lg-9">
-                  <div class="controls">
-                    <button type="button" class="btn btn-primary" id="start">Start</button>
-                    <button type="button" class="btn btn-danger" id="stop">Stop</button>
-                    <button type="button" class="btn btn-warning" id="new-game">New game</button>
-                    <div class="wrap-score">
-                      <span>Points:</span>
-                      <div class="score white-border" id="score">0</div>
-                    </div>
-                    <div class="wrap-timer">
-                      <span>Time left:</span>
-                      <div class="timer white-border" id="timer">01:00</div>
-                    </div>
+              <div class="col-lg-9">
+                <div class="controls">
+                  <button type="button" class="btn btn-primary" id="start">Start</button>
+                  <button type="button" class="btn btn-danger" id="stop">Stop</button>
+                  <button type="button" class="btn btn-warning" id="new-game">New game</button>
+                  <div class="wrap-score">
+                    <span>Points:</span>
+                    <div class="score white-border" id="score">0</div>
                   </div>
-                </div> 
+                  <div class="wrap-timer">
+                    <span>Time left:</span>
+                    <div class="timer white-border" id="timer">01:00</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-lg-3">
@@ -48,11 +48,9 @@
             </p>
           </div>
         </div>
-
       </header>
 
       <div class="main">
-        
         <div class="row">
           <div class="col-lg-9">
             <div class="game-field" id="game-field"></div>
@@ -80,19 +78,24 @@
                 </tr>
               </tbody>
             </table>
+          </div>
         </div>
-
       </div>
     </div>
 
     <div class="alert alert-success alert-modal" role="alert">
-      <h4 class="alert-heading text-center">Finish game!</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="alert-heading">Finish game!</h4>
       <div class="text-center">
         <p>Your score: <span class="alert-heading">12</span></p>
-        <label for="name">Name:</label><input type="text" id="name">
-      </div>  
+        <label for="name">Name:</label><input type="text" id="name" required />
+      </div>
       <button type="button" class="btn btn-success btn-lg btn-block modal-btn">Save result</button>
     </div>
+
+    <div class="black-bg"></div>
     <script type="module" src="js/index.js"></script>
   </body>
 </html>
