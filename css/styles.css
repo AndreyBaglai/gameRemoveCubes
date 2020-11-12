@@ -55,3 +55,6 @@ body {
 .cube-yellow {
   background-color: var(--yellow);
 }
+.cube-blue {
+  background-color: var(--blue);
+}

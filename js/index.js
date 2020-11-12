@@ -7,6 +7,9 @@ const newGameBtn = document.getElementById('new-game');
 const scoreEl = document.getElementById('score');
 const gameField = document.getElementById('game-field');
 
+const gameFieldWidth = gameField.offsetWidth;
+const gameFieldHeight = gameField.offsetHeight;
+
 const cubeHeight = 40;
 const cubeWidth = 40;
 
@@ -41,13 +44,12 @@ startBtn.addEventListener('click', (e) => {
   stopBtn.disabled = false;
   startBtn.disabled = true;
 
-  for(let i = 1; i < 100; i++) {
+  for(let i = 0; i < 5; i++) {
     cube();
   }
 
   if(timerValue < 59) {
     timerValue = parseInt(timerEl.textContent.split(':')[1]);
-    console.log('timerValue: ', timerValue);
   }
   createTimer(timerValue);
 });
@@ -69,21 +71,25 @@ function getRandomValue(min, max) {
 
 function cube() {
   const cube = document.createElement('div');
-  const colorsCube = ['red', 'green', 'yellow'];
+  const colorsCube = ['red', 'green', 'yellow', 'blue'];
 
   const randomColor = colorsCube[getRandomValue(0, colorsCube.length-1)];
   cube.classList.add('cube');
   cube.classList.add(`cube-${randomColor}`);
 
-  const top = getRandomValue(0, 100) + '%';
-  const left = getRandomValue(0, 100) + '%';
-  const right = getRandomValue(0, 100) + '%';
-  const bottom = getRandomValue(0, 100) + '%';
+  let top = getRandomValue(0, gameFieldHeight) - cubeHeight;
+  let left = getRandomValue(0, gameFieldWidth) - cubeWidth;
 
-  cube.style.top = top;
-  cube.style.left = left;
-  cube.style.right = right;
-  cube.style.bottom = bottom;
+  if (top < 0) {
+    top = '0';
+  }
+
+  if (left < 0) {
+    left = '0';
+  }
+
+  cube.style.top = top + 'px';
+  cube.style.left = left+ 'px';
 
   cube.style.width = cubeWidth + 'px';
   cube.style.height = cubeHeight + 'px';
