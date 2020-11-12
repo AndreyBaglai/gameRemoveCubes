@@ -18,29 +18,30 @@
   </head>
   <body>
     <div class="container">
-      <header>
+      <header class="header">
         <div class="row">
           <div class="col-lg-9">
             <h1>Remove Cubes</h1>
 
-            <div class="controls">
-              <div class="row">
+            <div class="row">
                 <div class="col-lg-9">
-                  <button>1</button>
-                  <button>2</button>
-                  <div class="score">45</div>
-                  <div class="timer">01:00</div>
-                </div>
-              </div>
+                  <div class="controls">
+                    <button type="button" class="btn btn-primary">Start</button>
+                    <button type="button" class="btn btn-warning">New game</button>
+                    <div class="wrap-score">
+                      <span>Points:</span>
+                      <div class="score white-border">11</div>
+                    </div>
+                    <div class="wrap-timer">
+                      <span>Time left:</span>
+                      <div class="timer white-border">01:00</div>
+                    </div>
+                  </div>
+                </div> 
             </div>
-
           </div>
           <div class="col-lg-3">
             <p>
-              Cubes are removed from the field by hovering over the cube and then clicking the left
-              mouse button
-              Cubes are removed from the field by hovering over the cube and then clicking the left
-              mouse button
               Cubes are removed from the field by hovering over the cube and then clicking the left
               mouse button
             </p>
@@ -53,11 +54,35 @@
         
         <div class="row">
           <div class="col-lg-9">
-            <div class="game-field">Field</div>
+            <div class="game-field">
+              <div class="cube cube-first"></div>
+              <div class="cube cube-second"></div>
+              <div class="cube cube-third"></div>
+            </div>
           </div>
           <div class="col-lg-3">
-            <div class="table-results">Table</div>
-          </div>
+            <table class="table table-striped table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Andrey</th>
+                  <td>25</td>
+                </tr>
+                <tr>
+                  <th scope="row">Oleg</th>
+                  <td>100</td>
+                </tr>
+                <tr>
+                  <th scope="row">Oleg007</th>
+                  <td>120</td>
+                </tr>
+              </tbody>
+            </table>
         </div>
 
       </div>

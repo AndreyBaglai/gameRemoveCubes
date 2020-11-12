@@ -1,0 +1,64 @@
+body {
+  background: rgb(19, 116, 136);
+  background: linear-gradient(
+    90deg,
+    rgba(19, 116, 136, 0.9500175070028011) 8%,
+    rgba(184, 236, 159, 0.8547794117647058) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.container {
+  background-color: var(--gray-dark);
+  color: #fff;
+}
+
+.header {
+  padding: 1rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  text-transform: uppercase;
+}
+
+.white-border {
+  border: 1px solid #fff;
+  padding-left: 0.25rem; 
+}
+
+.game-field {
+  width: 100%;
+  background-color: #fff;
+  min-height: 500px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.cube {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
+.cube-first {
+  left: 10%;
+  top:25%;
+  background-color: var(--red);
+}
+
+.cube-second {
+  left: 50%;
+  bottom:25%;
+  background-color: var(--green);
+}
+
+.cube-third {
+  top:75%;
+  right: 10%;
+  background-color: var(--yellow);
+}
