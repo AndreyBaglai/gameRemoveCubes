@@ -40,26 +40,18 @@ body {
 }
 
 .cube {
-  width: 40px;
-  height: 40px;
   position: absolute;
   cursor: pointer;
 }
 
-.cube-first {
-  left: 10%;
-  top:25%;
+.cube-red {
   background-color: var(--red);
 }
 
-.cube-second {
-  left: 50%;
-  bottom:25%;
+.cube-green {
   background-color: var(--green);
 }
 
-.cube-third {
-  top:75%;
-  right: 10%;
+.cube-yellow {
   background-color: var(--yellow);
 }
