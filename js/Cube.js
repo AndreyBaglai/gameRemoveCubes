@@ -6,6 +6,7 @@ export default class Cube {
     this.maxPosWidth = maxPosWidth
     this.colors = ['red', 'green', 'yellow', 'blue'];
     this.size = 40;
+    this.point = 1;
   }
 
   createCube() {

@@ -8,7 +8,7 @@ export default class Timer {
   start() {
     this.timerId = setInterval(() => {
       if (this.time <= 0) {
-        this.stopTimer();
+        this.stop();
         alert('End time');
       } else {
         if (this.time < 10) {
