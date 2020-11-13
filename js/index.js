@@ -3,7 +3,7 @@ import  Timer  from './Timer.js';
 import  Modal  from './Modal.js';
 import  TableResult  from './TableResult.js';
 
-import { changeDisabledBtn } from './utils.js';
+import { changeDisabledBtn, setToLS } from './utils.js';
 
 const timerEl = document.getElementById('timer');
 const startBtn = document.getElementById('start');
@@ -20,6 +20,9 @@ const saveBtn = document.getElementById('save');
 const game = new Game(gameEl, scoreEl);
 const timer = new Timer(timerEl);
 const modal = new Modal(modalEl, blackBgEl);
+const table = new TableResult();
+
+table.displayResultsFromLS();
 
 startBtn.addEventListener('click', () => {
   timer.setTime();
@@ -52,10 +55,11 @@ closeModalBtn.addEventListener('click', () => {
   modal.close();
 });
 
-saveBtn.addEventListener('click', (e) => {
+saveBtn.addEventListener('click', () => {
+  modal.checkName();
   const result = { name: modal.name, score: modal.totalScore };
-  const table = new TableResult(result);
 
-  table.addResult();
+  setToLS(result);
+  table.addResult(result);
   modal.close();
 });

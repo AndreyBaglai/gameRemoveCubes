@@ -9,8 +9,14 @@ export default class Modal {
     this.name = '';
 
     this.nameInput.addEventListener('input', (e) => {
-      this.name = e.target.value;
+      this.name = e.target.value.trim();
     });
+  }
+
+  checkName() {
+    if(!this.name) {
+      this.name = 'Default name';
+    }
   }
 
   show() {
