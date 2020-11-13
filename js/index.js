@@ -1,5 +1,7 @@
-import  Timer  from './Timer.js';
 import  Game  from './Game.js';
+import  Timer  from './Timer.js';
+import  Modal  from './Modal.js';
+import  TableResult  from './TableResult.js';
 
 import { changeDisabledBtn } from './utils.js';
 
@@ -10,12 +12,18 @@ const newGameBtn = document.getElementById('new-game');
 const scoreEl = document.getElementById('score');
 const gameEl = document.getElementById('game-field');
 
-const timer = new Timer(timerEl);
+const modalEl = document.getElementById('modal');
+const blackBgEl = document.getElementById('black-bg');
+const closeModalBtn = document.getElementById('modal-close');
+const saveBtn = document.getElementById('save');
+
 const game = new Game(gameEl, scoreEl);
+const timer = new Timer(timerEl);
+const modal = new Modal(modalEl, blackBgEl);
 
 startBtn.addEventListener('click', () => {
-  timer.setTime(timerEl);
-  timer.start(timerEl);
+  timer.setTime();
+  timer.start(modal);
   changeDisabledBtn(startBtn, true);
   changeDisabledBtn(stopBtn, false);
 
@@ -40,18 +48,14 @@ newGameBtn.addEventListener('click', () => {
   game.clearGameFields()
 });
 
-// function createCube() {
-//
-//   cube.addEventListener('click', (e) => {
-//     if(e.target.classList.contains('cube')) {
-//       if(Game.childElementCount < 5) {
-//         for(let i = 0; i < getRandomValue(0, 3); i++) {
-//           createCube();
-//         }
-//       }
+closeModalBtn.addEventListener('click', () => {
+  modal.close();
+});
 
-//       scoreEl.textContent = +scoreEl.textContent + 1;
-//       e.target.remove();
-//     }
-//   });
-// }
+saveBtn.addEventListener('click', (e) => {
+  const result = { name: modal.name, score: modal.totalScore };
+  const table = new TableResult(result);
+
+  table.addResult();
+  modal.close();
+});

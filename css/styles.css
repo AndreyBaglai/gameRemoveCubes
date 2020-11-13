@@ -80,6 +80,10 @@ body {
   outline: none;
 }
 
+#name {
+  margin-left: 0.25rem;
+}
+
 .black-bg {
   position: fixed;
   top: 0;

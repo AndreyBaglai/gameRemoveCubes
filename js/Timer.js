@@ -5,11 +5,11 @@ export default class Timer {
     this.timerEl = timerEl;
   }
 
-  start() {
+  start(modal) {
     this.timerId = setInterval(() => {
       if (this.time <= 0) {
         this.stop();
-        alert('End time');
+        modal.show();
       } else {
         if (this.time < 10) {
           this.timerEl.textContent = this.formatTime(this.time);
@@ -27,7 +27,7 @@ export default class Timer {
   setTime() {
     const [min, sec] = this.timerEl.textContent.split(':');
     if (min > 0) {
-      this.time = min * 59;
+      this.time = min * 3;
     }
   }
 

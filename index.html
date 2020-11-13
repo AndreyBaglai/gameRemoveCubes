@@ -63,39 +63,26 @@
                   <th scope="col">Score</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Andrey</th>
-                  <td>25</td>
-                </tr>
-                <tr>
-                  <th scope="row">Oleg</th>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <th scope="row">Oleg007</th>
-                  <td>120</td>
-                </tr>
-              </tbody>
+              <tbody id="tbody"></tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="alert alert-success alert-modal" role="alert">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="alert alert-success alert-modal" role="alert" id="modal">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modal-close">
         <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="alert-heading">Finish game!</h4>
       <div class="text-center">
-        <p>Your score: <span class="alert-heading">12</span></p>
-        <label for="name">Name:</label><input type="text" id="name" required />
+        <p>Your score: <span class="alert-heading" id="total-score">0</span></p>
+        <label for="name">Name:</label><input type="text" id="name" min="1" max="10" placeholder="Your name..."/>
       </div>
-      <button type="button" class="btn btn-success btn-lg btn-block modal-btn">Save result</button>
+      <button type="button" class="btn btn-success btn-lg btn-block modal-btn" id="save">Save result</button>
     </div>
 
-    <div class="black-bg"></div>
+    <div class="black-bg" id="black-bg"></div>
     <script type="module" src="js/index.js"></script>
   </body>
 </html>
