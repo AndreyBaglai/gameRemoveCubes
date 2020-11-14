@@ -9,7 +9,7 @@ export default class Game {
     this.width = this.gameFieldEl.offsetWidth;
     this.height = this.gameFieldEl.offsetHeight;
 
-    this.countCubes = 3;
+    this.countCubes = 5;
     this.countCurrentCubes = 0;
 
     this.scoreEl = scoreEl;
@@ -22,9 +22,10 @@ export default class Game {
       const cubeEl = cube.createCube(score);
 
       cubeEl.addEventListener('click', (e) => {
-        if (e.target.classList.contains('cube')) {
-          e.target.remove();
-
+        const currentCube = e.target.closest('.cube');
+        if (currentCube) {
+          currentCube.remove();
+          
           this.addToScore(cube.point);
           this.countCurrentCubes--;
 
