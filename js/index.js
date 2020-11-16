@@ -5,10 +5,11 @@ import  TableResult  from './TableResult.js';
 
 import { changeDisabledBtn, setToLS } from './utils.js';
 
-const timerEl = document.getElementById('timer');
 const startBtn = document.getElementById('start');
 const stopBtn = document.getElementById('stop');
 const newGameBtn = document.getElementById('new-game');
+
+const timerEl = document.getElementById('timer');
 const scoreEl = document.getElementById('score');
 const gameEl = document.getElementById('game-field');
 
@@ -27,8 +28,11 @@ table.displayResultsFromLS();
 startBtn.addEventListener('click', () => {
   timer.setTime();
   timer.start(modal);
+
   changeDisabledBtn(startBtn, true);
   changeDisabledBtn(stopBtn, false);
+
+  game.enabledGameField();
 
   if(game.countCurrentCubes) {
     return;
@@ -39,15 +43,20 @@ startBtn.addEventListener('click', () => {
 
 stopBtn.addEventListener('click', () => {
   timer.stop();
+
   changeDisabledBtn(startBtn, false);
   changeDisabledBtn(stopBtn, true);
+
+  game.disabledGameField();
 });
 
 newGameBtn.addEventListener('click', () => {
   timer.stop();
   timer.refreshTime();
+
   changeDisabledBtn(startBtn, false);
   changeDisabledBtn(stopBtn, false);
+
   game.clearGameFields()
 });
 
@@ -56,12 +65,13 @@ closeModalBtn.addEventListener('click', () => {
 });
 
 saveBtn.addEventListener('click', () => {
-  modal.checkName();
+  if(modal.isEmptyName()) { return; }
+
   const result = { name: modal.name, score: modal.totalScore };
 
   setToLS(result);
   table.addResult(result);
+  
   modal.close();
+  game.disabledGameField();
 });
-
-// Разработка и реализация более сложных правил/уровней , например: кубики разных цветов приносят разное количество очков, кубики меньшего размера приносят больше очков, появление кубиков, которые добавляют или отнимают время, разные кубики исчезают за разное количество кликов).

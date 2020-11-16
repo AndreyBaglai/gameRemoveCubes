@@ -21,6 +21,7 @@ export default class TableResult {
   displayResultsFromLS() {
     if (this.results.length) {
       this.tbody.innerHTML = '';
+      
       for (let i = 0; i < this.results.length; i++) {
         this.name = this.results[i].name;
         this.score = this.results[i].score;

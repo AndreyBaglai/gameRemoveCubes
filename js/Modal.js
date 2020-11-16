@@ -13,16 +13,15 @@ export default class Modal {
     });
   }
 
-  checkName() {
+  isEmptyName() {
     if(!this.name) {
-      this.name = 'Default name';
+      return true;
     }
   }
 
   show() {
     this.modalEl.style.display = 'block';
     this.blackBgEl.style.display = 'block';
-
     this.totalScore = this.scoreEl.textContent;
     this.totalScoreEl.textContent = this.totalScore;
   }

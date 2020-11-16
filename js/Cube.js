@@ -4,11 +4,11 @@ export default class Cube {
   constructor(maxPosHeight, maxPosWidth) {
     this.maxPosHeight = maxPosHeight;
     this.maxPosWidth = maxPosWidth;
-    this.colors = ['red', 'green', 'yellow', 'blue'];
+    this.colors = ['red', 'green', 'yellow', 'blue', 'black'];
     this.maxSize = 60;
     this.minSize = 20;
-    this.size = this.setRandomSize(); //20 40 60
-    this.point = 0; //1 2 3     0.7rem 1rem 1.5rem
+    this.size = this.setRandomSize();
+    this.point = 0;
   }
 
   createCube() {
@@ -18,7 +18,7 @@ export default class Cube {
     cube.classList.add('cube');
     cube.classList.add(`cube-${randomColor}`);
 
-    this.setPointForCube();
+    this.setValues(cube);
 
     cube.innerHTML = `<span>+${this.point}</span>`;
 
@@ -39,13 +39,16 @@ export default class Cube {
     return randomNumber(this.minSize, this.maxSize);
   }
 
-  setPointForCube() {
+  setValues(el) {
     if (this.size <= 33) {
       this.point = 3;
+      el.style.fontSize = '0.7rem';
     } else if (this.size <= 46 && this.size > 33) {
       this.point = 2;
+      el.style.fontSize = '1rem';
     } else if (this.size <= 60 && this.size > 46) {
       this.point = 1;
+      el.style.fontSize = '1.5rem';
     }
   }
 

@@ -23,6 +23,7 @@ export default class Game {
 
       cubeEl.addEventListener('click', (e) => {
         const currentCube = e.target.closest('.cube');
+        
         if (currentCube) {
           currentCube.remove();
           
@@ -44,6 +45,14 @@ export default class Game {
       this.gameFieldEl.appendChild(cubeEl);
     }
     this.countCurrentCubes = this.gameFieldEl.childElementCount;
+  }
+
+  disabledGameField() {
+    this.gameFieldEl.style.pointerEvents = 'none';
+  }
+
+  enabledGameField() {
+    this.gameFieldEl.style.pointerEvents = 'inherit';
   }
 
   clearGameFields() {

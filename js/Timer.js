@@ -14,6 +14,7 @@ export default class Timer {
         if (this.time < 10) {
           this.timerEl.textContent = this.formatTime(this.time);
         }
+        
         this.timerEl.textContent = this.formatTime(this.time);
       }
       --this.time;
@@ -25,9 +26,10 @@ export default class Timer {
   }
 
   setTime() {
-    const [min, sec] = this.timerEl.textContent.split(':');
+    const [min, _ ] = this.timerEl.textContent.split(':');
+
     if (min > 0) {
-      this.time = min * 3;
+      this.time = min * 59;
     }
   }
 

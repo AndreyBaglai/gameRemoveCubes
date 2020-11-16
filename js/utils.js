@@ -10,9 +10,11 @@ export function changeDisabledBtn(btn, value) {
 
 export function setToLS(item) {
   let gameResults = JSON.parse(localStorage.getItem('gameResults'));
+
   if(!gameResults) {
      gameResults = [];
   }
+  
   gameResults.push(item);
   localStorage.setItem('gameResults', JSON.stringify(gameResults));
 }

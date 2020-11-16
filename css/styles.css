@@ -1,3 +1,6 @@
+@import './Cube.css';
+@import './Modal.css';
+
 body {
   background: rgb(19, 116, 136);
   background: linear-gradient(
@@ -41,71 +44,6 @@ body {
   position: relative;
 }
 
-.cube {
-  position: absolute;
-  cursor: pointer;
-}
-
-.cube > span {
-  color: #fff;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: inherit;
-  width: inherit;
-}
-
-.cube-red {
-  background-color: var(--red);
-}
-
-.cube-green {
-  background-color: var(--green);
-}
-
-.cube-yellow {
-  background-color: var(--yellow);
-}
-
-.cube-blue {
-  background-color: var(--blue);
-}
-
 .overflow {
   overflow: auto;
-}
-
-.alert-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  display: none;
-}
-
-.modal-btn {
-  font-size: 1rem;
-  text-transform: initial;
-}
-
-.close:focus {
-  outline: none;
-}
-
-#name {
-  margin-left: 0.25rem;
-}
-
-.black-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #000;
-  opacity: 0.4;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: none;
 }
